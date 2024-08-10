@@ -1,23 +1,32 @@
+// C++ program to illustrate the
+// iterators in vector
 #include <iostream>
 #include <vector>
-#include <bits/stdc++.h>
-using namespace std;
-void vector_stl(){
-    vector<int> v; // empthy container
-    v.push_back(2); // size inc to 1 and 2 is added
-    v.emplace_back(2); // size inc to 1 and 2 is added dynamically (faster)
-    for (int i : v) cout << i << " ";
-    
-    vector<pair<int,int>>vec;
-    vec.push_back({1,2}); // Difference in syntax
-    vec.emplace_back(1,2);
 
-    vector<int> v1(5,40);  // ---> {40,40,40,40,40}
-    vector<int> v1(5);  // ---> {0,0,0,0,0} or any garbage value
-    
-}
+using namespace std;
+
 int main()
 {
-    vector_stl();
+    vector<int> v1;
+
+    for (int i = 1; i <= 5; i++)
+        v1.push_back(i);
+
+    cout << "Output of begin and end: ";
+    for (auto i = v1.begin(); i != v1.end(); ++i)
+        cout << *i << " ";
+
+    cout << "\nOutput of cbegin and cend: ";
+    for (auto i = v1.cbegin(); i != v1.cend(); ++i)
+        cout << *i << " ";
+
+    cout << "\nOutput of rbegin and rend: ";
+    for (auto ir = v1.rbegin(); ir != v1.rend(); ++ir)
+        cout << *ir << " ";
+
+    cout << "\nOutput of crbegin and crend : ";
+    for (auto ir = v1.crbegin(); ir != v1.crend(); ++ir)
+        cout << *ir << " ";
+
     return 0;
 }

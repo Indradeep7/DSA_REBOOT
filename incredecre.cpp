@@ -6,7 +6,7 @@ int main(){
 	a = 10;
 	c = ++a;
 	b = a++;
-	cout<<"a is:"<<a;
-	cout<<"b is:"<<b;
-	cout<<"c is:"<<c;
+	cout<<"a is:"<<a << endl;
+	cout<<"b is:"<<b << endl;
+	cout<<"c is:"<<c << endl;
 }
