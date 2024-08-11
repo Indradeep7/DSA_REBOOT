@@ -3,18 +3,21 @@
 #include <algorithm>
 using namespace std;
 
-// selection sort
-// Repeatedly swaps adjacent elements if they are in the wrong order.
+// insertion sort
+// "Insertion Sort works by picking each element and placing it in the right spot among the elements that are already sorted."
 // Time Complexity: O(n²)
 // Space Complexity: O(1)
+// Best Case: O(n) when the array is already sorted.
 
 void insertion_sort(int n, int arr[]);
 void insertion_sort(int n, int arr[])
 {
-    for (int i = 0; i < n - 1; i++)
-    {
-        for (int j = 0; j < n - 1; j++)
-            if(arr[j] > arr[j + 1]) swap(arr[j], arr[j+1]);
+    for (int i = 0; i <= n - 1; i++) {
+        int j = i;
+        while (j > 0 && arr[j - 1] > arr[j]) { // if previous ele is > current ele then swap and do the same for all where now prev ele is the curr ele now.... check till j > 0...if not true then don't check further
+            swap(arr[j-1],arr[j]);
+            j--;
+        }
     }
 }
 

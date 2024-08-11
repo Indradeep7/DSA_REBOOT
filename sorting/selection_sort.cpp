@@ -7,9 +7,9 @@ using namespace std;
 // Time Complexity: O(n²)
 // Space Complexity: O(1)
 
-void bubble_sort(int n,int arr[]);
-void bubble_sort(int n,int arr[]) {
-    
+void insertion_sort(int n,int arr[]);
+void insertion_sort(int n,int arr[]) {
+
     for (int i = 0; i < n - 1; i++)
     {
         int min_i = i;
@@ -37,7 +37,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    bubble_sort(n,arr);
+    insertion_sort(n,arr);
 
     cout << "After Sorting\n";
 
