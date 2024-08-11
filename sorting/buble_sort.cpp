@@ -1,5 +1,6 @@
 #include <iostream>
 #include <bits/stdc++.h>
+#include <algorithm>
 using namespace std;
 
 // selection sort
@@ -10,18 +11,11 @@ using namespace std;
 void bubble_sort(int n, int arr[]);
 void bubble_sort(int n, int arr[])
 {
-
     for (int i = 0; i < n - 1; i++)
     {
-        int mini = i;
-        for (int j = i + 1; j < n; j++)
-        {
-            if (arr[j] < arr[mini])
-                mini = j;
-        }
-        swap(arr[i],arr[mini]); // permanent change
+        for (int j = 0; j < n - 1; j++)
+            if(arr[j] > arr[j + 1]) swap(arr[j], arr[j+1]);
     }
-
 }
 
 int main()

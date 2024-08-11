@@ -9,15 +9,17 @@ using namespace std;
 
 void bubble_sort(int n,int arr[]);
 void bubble_sort(int n,int arr[]) {
+    
     for (int i = 0; i < n - 1; i++)
     {
-        int mini = i;
+        int min_i = i;
         for (int j = i + 1; j < n; j++)
         {
-            if (arr[j] < arr[mini])
-                mini = j;
+            if (arr[j] < arr[min_i])
+                min_i = j;
         }
-        swap(arr[i],arr[mini]); // permanent change
+
+        swap(arr[i],arr[min_i]); // permanent change
     }
 
 }
