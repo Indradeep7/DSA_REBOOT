@@ -7,6 +7,10 @@
 #include <queue>
 #include <set>
 #include <unordered_set>
+#include <map>
+#include <algorithm>
+#include <string>
+
 
 using namespace std;
 void prac_pair() {
@@ -320,6 +324,95 @@ void prac_unordered_set() {
     // than set in most cases, except some when collision happens  
 
 }
+
+void prac_maps() {
+     // sorted keys
+     // unique keys
+    map<int, int> m1;  
+    // map<int, pair<int, int>> m2;  
+    map<pair<int, int>, int> m3;  
+
+    m1[1] = 2;  
+    m1.emplace(3, 1);  
+    m1.insert({2, 4});  
+    m3[{2, 3}] = 10;  
+    // how its stored...
+    // {
+    //     {1,2}
+    //     {2,4}
+    //     {3,1}
+    // }
+
+    for(auto it : m1) {  
+        cout << it.first << "-" << it.second << endl;  
+    }  
+    
+    cout << m1[1] << endl ; // {1,2}
+    cout << m1[5] << endl;  // {no key = 5} so 0
+
+    auto it1 = m1.find(3);  
+    cout << it1->second << endl;  // {3,1}
+
+    // This is the syntax  
+    // auto it = m1.lower_bound(2);  
+    // auto it = m1.upper_bound(3);  
+
+    // erase, swap, size, empty, are same as above
+}
+
+void explainMultimap() {
+    // everything same as map, only it can store multiple keys   
+    // only mp[key] cannot be used here  
+}
+void explainUnorderedMap() {
+    // same as set and unordered_Set difference.  
+}
+
+
+bool comp(pair<int, int> p1, pair<int, int> p2) {  
+    if (p1.second < p2.second) return true;  
+    if (p1.second > p2.second) return false;  
+    return p1.first > p2.first;  
+}  
+
+void prac_algo() {  
+    int a[] = {5, 3, 1, 4, 2};  // Example array
+    int n = sizeof(a) / sizeof(a[0]);  // Size of array
+
+    // Sorting an array in ascending order
+    sort(a, a + n);  
+    
+    // Sorting a vector in ascending order
+    vector<int> v = {5, 3, 1, 4, 2};
+    sort(v.begin(), v.end());  
+
+    // Sorting an array in descending order
+    sort(a, a + n, greater<int>());  
+
+    // Sorting an array of pairs with custom comparator
+    pair<int, int> arr[] = {{1, 2}, {2, 1}, {4, 1}};  
+    sort(arr, arr + 3, comp);  
+
+    // Counting set bits in an integer
+    int num = 7;
+    int cnt = __builtin_popcount(num);  // For int type
+
+    // Counting set bits in a long long integer
+    long long num_ll = 165786578687;
+    int cnt_ll = __builtin_popcountll(num_ll);  // For long long type
+
+    // Generating all permutations of a string
+    string s = "123";  
+    do {  
+        cout << s << endl;  
+    } while (next_permutation(s.begin(), s.end()));  
+
+    // Finding the maximum element in an array
+    int maxi = *max_element(a, a + n);
+    cout << "Maximum element in array: " << maxi << endl;
+}
+
+
 int main() {
     // prac_pair();
     // prac_vector();
@@ -329,6 +422,8 @@ int main() {
     // prac_priority_queue();
     // prac_set();
     // prac_multi_set();
-    prac_unordered_set();
+    // prac_unordered_set();
+    // prac_maps();
+    prac_algo();
     return 0;
 }
