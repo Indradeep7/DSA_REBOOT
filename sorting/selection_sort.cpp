@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// selection_sort
+// selection__sort
 
 void selection_sort(int n,int arr[]);
 void selection_sort(int n,int arr[]) {
