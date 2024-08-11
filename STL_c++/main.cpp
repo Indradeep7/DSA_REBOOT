@@ -424,6 +424,6 @@ int main() {
     // prac_multi_set();
     // prac_unordered_set();
     // prac_maps();
-    prac_algo();
+    // prac_algo();
     return 0;
 }
