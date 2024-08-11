@@ -2,6 +2,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+// selection_sort
+
 void selection_sort(int n,int arr[]);
 void selection_sort(int n,int arr[]) {
     for (int i = 0; i < n; i++)
@@ -10,8 +12,6 @@ void selection_sort(int n,int arr[]) {
             if(arr[i] > arr[j]) 
                 swap(arr[i],arr[j]); // permanent change
     }
-    
-    
 }
 
 
