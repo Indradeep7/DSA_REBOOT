@@ -2,6 +2,12 @@
 // #include <utility> // for std::pair
 // #include <bits/stdc++.h>
 #include <vector>
+#include <list>
+#include <stack>
+#include <queue>
+#include <set>
+#include <unordered_set>
+
 using namespace std;
 void prac_pair() {
 
@@ -140,9 +146,189 @@ void prac_vector() {
 
 }
 
+void prac_list() {
+    //same as vector 
+    //extra: gives us front operations as well
+
+    list <int> ls;
+    ls.push_back(1); // {1}
+    ls.emplace_back(2); // {1,2}
+
+    ls.push_front(5); // {5,1,2} //replacement of insert in vector
+    // insert takes lot of time ...costly
+    // vector : dynamic array || list : Doubly LL  
+    
+    ls.emplace_front(); // {0,1,2}
+    for(auto it : ls) cout << it << " ";
+    cout<<endl;
+
+}
+
+void prac_stack() {
+    stack<int> st1;
+    st1.push(1); // {1}
+    st1.push(2); // {1,2}
+    st1.push(3); // {1,2,3}
+    st1.push(4); // {1,2,3,4}
+    st1.push(5); // {1,2,3,4,5}
+
+    cout<<st1.top()<<endl;
+
+    st1.pop();
+
+    cout<<st1.size()<<endl;
+
+    cout<<st1.empty()<<endl;
+
+    stack<int> st2;
+    st1.swap(st2);
+
+    cout<<st1.empty()<<endl;
+
+    swap(st1,st2);
+
+    cout<<st1.empty()<<endl;
+}
+
+void prac_queue() {
+    queue<int> q;
+    q.push(1); // {1}
+    q.push(2); // {1,2}
+    q.emplace(4); // {1,2,4}
+
+    q.back() += 5; // 5 + 4
+
+    cout << q.back() << endl; // 9
+
+    q.pop(); // 1 is popped {2,9}
+
+    cout << q.front() <<endl; // 2
+}
+
+void prac_priority_queue() {
+
+    // For max heap
+    priority_queue<int> pq1;
+    pq1.push(5); // {5}
+    pq1.push(2); // {5,2}
+    pq1.push(8); // {8,5,2}
+    pq1.emplace(10); // {10,8,5,2}
+
+    cout << pq1.top() << endl; // 10
+    pq1.pop(); // 10 is popped
+    cout << pq1.top() << endl; //8
+cout << "_______________________________________________\n";
+    // For min heap
+    priority_queue<int,vector<int>,greater<int>> pq2;
+    pq2.push(5); // {5}
+    pq2.push(2); // {2,5}
+    pq2.push(8); // {2,5,8}
+    pq2.emplace(10); // {2,5,8,10}
+
+    cout << pq2.top() << endl; // 2
+    pq2.pop(); // 2 is popped
+    cout << pq2.top() << endl; //5
+
+    
+}
+
+void prac_set() {
+    // sorted
+    // unique
+    // sets don't  have contigous memory
+    set<int> s;
+    s.insert(1); // {1}
+    s.emplace(2); // {1,2}
+    s.insert(2); // {1,2}
+    s.insert(4); // {1,2,4}
+    s.insert(3); // {1,2,3,4}
+
+    auto it1 = s.find(2); // returns an itrator which points to 2 
+    // if 2 is not there the it returns s.end() i.e. the last element
+    auto it2 = s.find(83277); 
+    auto it3 = s.find(4); 
+
+    cout << *(it1) << endl; // 2
+    cout << *(it2) << endl; // 4
+    cout << *(it3) << endl; // 4
+
+    cout<< s.count(2) << endl;
+    cout<< s.count(9) << endl;
+
+    for(auto it : s) cout << it << " ";
+    cout<<endl;
+
+    s.erase(it1,it3); // .erase(start_element,end_element); // end_ele excluded
+
+    for(auto it : s) cout << it << " ";
+    cout<<endl;
+
+    // auto it = s.lower_bound(2);
+    // auto it = s.upper_bound(3);
+}
+void prac_multi_set() {
+    // sorted
+    // not unique
+    multiset<int> ms;
+    ms.insert(1); // {1}
+    ms.emplace(2); // {1,2}
+    ms.insert(2); // {1,2,2}
+    ms.insert(2); // {1,2,2,2}
+    ms.insert(4); // {1,2,2,2,4}
+    ms.insert(3); // {1,2,2,2,3,4}
+
+    auto it1 = ms.find(2); 
+    auto it2 = ms.find(4); 
+
+    cout << *(it1) << endl; // 2
+    cout << *(it2) << endl; // 4
+
+    // cout<< ms.count(2) << endl;
+    // cout<< ms.count(9) << endl;
+
+    for(auto it : ms) cout << it << " ";
+    cout<<endl;
+    // {1,2,2,2,3,4}
+
+    // ms.erase(2); // it erases all 2s // {1,3,4}
+
+    // ms.erase(it1); // erases only one 2 //{1,2,2,3,4}
+
+
+    // advance(it1,2); //it points two step ahead of the ele 2
+    // ms.erase(ms.find(2),it1); // erases two 2s
+
+    ms.erase(ms.find(2), next(ms.find(2), 2)); // another way to advance
+
+    for(auto it : ms) cout << it << " ";
+    cout<<endl;
+
+    // auto it = ms.lower_bound(2);
+    // auto it = ms.upper_bound(3);
+}
+
+void prac_unordered_set() {
+      
+    unordered_set<int> st;  
+    // not sorted
+    // unique
+    
+    // lower_bound and upper_bound function  
+    // does not works, rest all functions are same  
+    // as above, it does not stores in any  
+    // particular order it has a better complexity  
+    // than set in most cases, except some when collision happens  
+
+}
 int main() {
     // prac_pair();
-    prac_vector();
-    
+    // prac_vector();
+    // prac_list();
+    // prac_stack();
+    // prac_queue();
+    // prac_priority_queue();
+    // prac_set();
+    // prac_multi_set();
+    prac_unordered_set();
     return 0;
 }
