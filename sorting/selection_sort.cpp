@@ -7,8 +7,8 @@ using namespace std;
 // Time Complexity: O(n²)
 // Space Complexity: O(1)
 
-void insertion_sort(int n,int arr[]);
-void insertion_sort(int n,int arr[]) {
+void selection_sort(int n,int arr[]);
+void selection_sort(int n,int arr[]) {
 
     for (int i = 0; i < n - 1; i++)
     {
@@ -37,7 +37,7 @@ int main()
     cout << endl;
     cout << endl;
 
-    insertion_sort(n,arr);
+    selection_sort(n,arr);
 
     cout << "After Sorting\n";
 
