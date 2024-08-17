@@ -31,11 +31,11 @@ void QuickSort(int A[], int l, int h)
     if (l < h)
     {
         // Partition the array and get the pivot index
-        int j = partition(A, l, h);
+        int p_index = partition(A, l, h);
         // Recursively sort the elements before the pivot
-        QuickSort(A, l, j);
+        QuickSort(A, l, p_index);
         // Recursively sort the elements after the pivot
-        QuickSort(A, j + 1, h);
+        QuickSort(A, p_index + 1, h);
     }
 }
 
