@@ -54,19 +54,20 @@ node reverse_node() {
 
 // Recursive reverse function that takes the head node as an argument
 node recursive_reverse_node(node current) {
-    // Base case: If the list is empty or has only one node, return the current node (new head)
+    // Base case: If the list is empty or has only one node, or list has ended, return the current node (new head)
     if (current == NULL || current->next == NULL) {
         return current;
     }
 
     // Recursively reverse the rest of the list from the next node onward
+    // next node is the new_head
     node new_head = recursive_reverse_node(current->next);
 
     // After recursion, reverse the current node's next pointer
-    node nextnode = current->next;
-    nextnode->next = current;
+    node nextnode = current->next;//starts with last node
+    nextnode->next = current;// reverses the next
 
-    // Set the current node's next to NULL (as it will become the last node)
+    // Set the current node's next to NULL (as it will become the last node in upcoming round)
     current->next = NULL;
 
     // Return the new head (which is the last node in the original list)
