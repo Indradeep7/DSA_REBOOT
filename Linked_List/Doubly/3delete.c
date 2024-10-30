@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct node {
+typedef struct node
+{
     struct node *prev;
     int data;
     struct node *next;
@@ -9,49 +10,66 @@ typedef struct node {
 
 node head = NULL, temp;
 
-void create_node(int data) {
+void create_node(int data)
+{
     node new_node = (node)malloc(sizeof(struct node));
     new_node->data = data;
     new_node->next = NULL;
 
-    if (head == NULL) {
+    if (head == NULL)
+    {
         head = new_node;
         new_node->prev = NULL;
-    } else {
+    }
+    else
+    {
         temp = head;
-        while (temp->next != NULL) temp = temp->next;
+        while (temp->next != NULL)
+            temp = temp->next;
         new_node->prev = temp;
         temp->next = new_node;
     }
 }
 
-void delete_beg() {
-    if (head == NULL) return;
+void delete_beg()
+{
+    if (head == NULL)
+        return;
 
     node to_delete = head;
     head = head->next;
-    if (head != NULL) head->prev = NULL;
+    if (head != NULL)
+        head->prev = NULL;
     free(to_delete);
 }
 
-void delete_end() {
-    if (head == NULL) return;
+void delete_end()
+{
+    if (head == NULL)
+        return;
 
-    if (head->next == NULL) {
+    if (head->next == NULL)
+    {
         free(head);
         head = NULL;
-    } else {
+    }
+    else
+    {
         node temp = head;
-        while (temp->next != NULL) temp = temp->next;
+        while (temp->next != NULL)
+            temp = temp->next;
         temp->prev->next = NULL;
         free(temp);
     }
 }
 
-void delete_index(int pos) {
-    if (head == NULL || pos < 1) return;
+void delete_index(int pos)
+{
+    if (head == NULL || pos < 1)
+        return;
 
-    if (pos == 1) {
+    if (pos == 1)
+    {
         delete_beg();
         return;
     }
@@ -59,27 +77,33 @@ void delete_index(int pos) {
     node temp = head;
     int x = 1;
 
-    while (temp->next != NULL && x < pos) {
+    while (temp->next != NULL && x < pos)
+    {
         temp = temp->next;
         x++;
     }
 
-    if (temp->next == NULL && x < pos) return;
+    if (temp->next == NULL && x < pos)
+        return;
 
     temp->prev->next = temp->next;
-    if (temp->next != NULL) temp->next->prev = temp->prev;
+    if (temp->next != NULL)
+        temp->next->prev = temp->prev;
     free(temp);
 }
 
-void print_node() {
-    if (head == NULL) {
+void print_node()
+{
+    if (head == NULL)
+    {
         printf("List is empty\n");
         return;
     }
 
     int sno = 65;
     temp = head;
-    while (temp != NULL) {
+    while (temp != NULL)
+    {
         printf("%c. data = %d\t", sno, temp->data);
         temp = temp->next;
         sno++;
@@ -87,7 +111,8 @@ void print_node() {
     printf("\n");
 }
 
-int main() {
+int main()
+{
     printf("\n\nInitial creation of nodes:\n");
     create_node(5);
     create_node(7);
