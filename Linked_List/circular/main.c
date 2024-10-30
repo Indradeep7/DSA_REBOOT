@@ -46,7 +46,7 @@ void print_node()
     do
     {
         printf("%d. data = %d\n", sno++, temp->data); // Print the data in the current node
-        temp = temp->next;              // Move to the next node
+        temp = temp->next;                            // Move to the next node
     } while (temp != head); // Continue until we reach the head node again
     printf("\n-------------------$\n");
 }
@@ -169,7 +169,6 @@ void delete_index(int pos)
     node to_delete = temp->next;  // The node to delete
     temp->next = to_delete->next; // Update link to skip the deleted node
     free(to_delete);              // Free the memory for the deleted node
-
 }
 
 // Function to delete the last node in the circular linked list

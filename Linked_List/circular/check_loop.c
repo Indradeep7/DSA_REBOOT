@@ -46,21 +46,23 @@ void print_node()
     printf("\n-------------------$\n");
 }
 
-bool check_loop() {
+bool check_loop()
+{
     current = head;
     temp = head;
-    while(temp && temp->next) {
+    while (temp && temp->next)
+    {
         current = current->next;
         temp = temp->next->next;
 
-        if(current == temp) {
+        if (current == temp)
+        {
             return true;
         }
     }
 
     return false;
 }
-
 
 int main()
 {
@@ -72,7 +74,7 @@ int main()
     print_node();
 
     bool flag = check_loop();
-    printf("Loop in node: %s",flag?"true":"false");
+    printf("Loop in node: %s", flag ? "true" : "false");
 
     return 0;
 }
