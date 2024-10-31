@@ -1,3 +1,10 @@
+// stack using array
+// we need:
+// An array, Size of that Array, Top pointer pointing to the topmost/recently inserted element
+// we insert elements from the right side of the array as its O(1) or else O(n)
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
