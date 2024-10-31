@@ -2,7 +2,8 @@
 // we need:
 // An array, Size of that Array, Top pointer pointing to the topmost/recently inserted element
 // we insert elements from the right side of the array as its O(1) or else O(n)
-
+// If stack Empty, top = -1
+// If stack Full, top = sizeof(arr) - 1
 
 
 #include <stdio.h>
