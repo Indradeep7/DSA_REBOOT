@@ -1,0 +1,20 @@
+queue adt - fifo 
+addition from the rear end and deletion from the front end
+data :
+1. space for storing elements
+2. front - for deletion
+3. rear - for insertion
+
+operations:
+enqueue(), dequeue(), isEmpty(), isFull(), first(), last()
+implemented by array and linked list
+
+1. implementation by array
+-> queue using single pointer
+-> queue using front and rear
+-> drawbacks of queue using array
+single ptr : insertion tc - O(1), deletion tc - O(n)
+two pts : enqueue tc - O(1), dequeue tc - O(1)
+initially -> front=rear=-1
+empty -> if(front=rear)
+full -> if(rear=size-1) 
