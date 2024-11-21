@@ -21,7 +21,6 @@ void heapify(int arr[], int n, int i)
         heapify(arr, n, largest);
     }
 }
-
 void heap(int arr[], int s)
 {
     int n = s;
@@ -38,7 +37,6 @@ void heap(int arr[], int s)
         heapify(arr, n, 1);
     }
 }
-
 int main()
 {
     int arr[100];

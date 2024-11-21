@@ -23,7 +23,7 @@ node top = NULL;
 void push(int data)
 {
     node t = (node)malloc(sizeof(struct node));
-    if (t == NULL)
+    if (t == NULL) // If no node is created
     {
         printf("\nStack Overflow\n");
     }
@@ -115,13 +115,13 @@ int main()
     do
     {
         printf("\nStack Menu ---\n");
-        printf("1. Push\t");
-        printf("2. Pop\t");
-        printf("3. Peek\t");
-        printf("4. Display Stack\t");
-        printf("5. Check if Stack is Empty\t");
-        printf("6. Check if Stack is Full\t");
-        printf("7. Display Top Element\t");
+        printf("1. Push\n");
+        printf("2. Pop\n");
+        printf("3. Peek\n");
+        printf("4. Display Stack\n");
+        printf("5. Check if Stack is Empty\n");
+        printf("6. Check if Stack is Full\n");
+        printf("7. Display Top Element\n");
         printf("0. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
