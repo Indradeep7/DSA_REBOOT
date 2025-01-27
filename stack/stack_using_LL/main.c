@@ -20,6 +20,8 @@ typedef struct node
 
 node top = NULL;
 
+
+// the heap is limited. If the system runs out of memory, malloc() (used for dynamic memory allocation) will return NULL.
 void push(int data)
 {
     node t = (node)malloc(sizeof(struct node));
@@ -36,22 +38,16 @@ void push(int data)
     }
 }
 
-int pop()
-{
-    node pop_node = NULL;
-    int pop_data = -1;
-    if (top == NULL)
-    {
+int pop() {
+    if (top == NULL) {
         printf("\nStack Underflow\n");
+        return -1;
     }
-    else
-    {
-        pop_node = top;
-        top = top->next;
-        pop_data = pop_node->data;
-        free(pop_node);
-        printf("Popped %d from stack\n", pop_data);
-    }
+    node pop_node = top;
+    top = top->next;
+    int pop_data = pop_node->data;
+    free(pop_node);
+    printf("Popped %d from stack\n", pop_data);
     return pop_data;
 }
 
